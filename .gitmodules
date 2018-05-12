@@ -1,0 +1,3 @@
+[submodule "submodules/split"]
+	path = submodules/split
+	url = https://github.com/gmbeard/split.git
