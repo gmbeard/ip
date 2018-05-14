@@ -8,8 +8,12 @@ using std::end;
 
 auto slice_to_octet(split::Slice const& s) -> uint8_t {
 
-    if (s.size() > 3 || s.size() == 0) {
-        throw InvalidIPv4Error { "Incorrect amount of, or zero octet digits" };
+    if (!s.size()) {
+        throw InvalidIPv4Error { "Empty octet string" };
+    }
+
+    if (s.size() > 3) {
+        throw InvalidIPv4Error { "Too many octet digits" };
     }
 
     uint16_t octet = 0;
