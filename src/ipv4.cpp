@@ -1,7 +1,6 @@
 #include "ip/ipv4.hpp"
 #include "split/split.hpp"
 #include <algorithm>
-#include <iostream>
 
 using namespace ip;
 using std::begin;
@@ -53,11 +52,6 @@ auto slice_to_octet(split::Slice const& s) -> uint8_t {
 auto IPv4::from_string(std::string const& s) -> IPv4 {
 
     auto parts = split::split(s.c_str(), ".");
-    std::cerr << "IP parts: " << parts.size() << "\n";
-    for (auto const& p : parts) {
-        std::cerr << split::to_string(p) << " ";
-    }
-    std::cerr << "\n";
     if (parts.size() != 4) {
         throw InvalidIPv4Error { "Invalid IPv4 format" };
     }
