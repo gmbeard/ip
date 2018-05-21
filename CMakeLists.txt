@@ -1,8 +1,18 @@
 cmake_minimum_required(VERSION 3.7)
 
 project(Ip)
+set(CMAKE_MODULE_PATH
+    ${CMAKE_CURRENT_SOURCE_DIR}/submodules/cmake
+)
 
-add_subdirectory(submodules/split)
+list(APPEND 
+    CMAKE_PREFIX_PATH
+    ${CMAKE_CURRENT_LIST_DIR}/deps
+)
+
+include(InstallExternals)
+
+#add_subdirectory(submodules/split)
 add_subdirectory(include)
 add_subdirectory(src)
 

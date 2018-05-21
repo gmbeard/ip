@@ -1,3 +1,5 @@
+find_package(Split REQUIRED)
+
 add_library(
     ip
     STATIC
@@ -9,7 +11,7 @@ target_link_libraries(
     PUBLIC
         Ip::headers
     PRIVATE
-        SplitLibrary
+        Split::SplitLibrary
 )
 
 target_compile_options(

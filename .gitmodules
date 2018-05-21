@@ -1,3 +1,3 @@
-[submodule "submodules/split"]
-	path = submodules/split
-	url = https://github.com/gmbeard/split.git
+[submodule "submodules/cmake"]
+	path = submodules/cmake
+	url = https://github.com/gmbeard/cmake-modules.git
