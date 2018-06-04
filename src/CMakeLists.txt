@@ -21,6 +21,12 @@ target_compile_options(
         $<$<CXX_COMPILER_ID:MSVC>:/W4 /WX>
 )
 
+target_compile_definitions(
+    ip
+    PUBLIC
+        $<$<CXX_COMPILER_ID:MSVC>:_SCL_SECURE_NO_WARNINGS>
+)
+
 install(
     TARGETS
         ip
