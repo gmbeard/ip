@@ -2,17 +2,19 @@ cmake_minimum_required(VERSION 3.7)
 
 project(Ip)
 set(CMAKE_MODULE_PATH
-    ${CMAKE_CURRENT_SOURCE_DIR}/submodules/cmake
+    ${CMAKE_CURRENT_SOURCE_DIR}/cmake
 )
 
-list(APPEND 
-    CMAKE_PREFIX_PATH
-    ${CMAKE_CURRENT_LIST_DIR}/deps
+option(SKIP_SUPERBUILD
+    "Superbuild for ${PROJECT_NAME}"
+    OFF
 )
 
-include(InstallExternals)
+if(NOT SKIP_SUPERBUILD)
+    include(SuperBuild)
+    return()
+endif()
 
-#add_subdirectory(submodules/split)
 add_subdirectory(include)
 add_subdirectory(src)
 
